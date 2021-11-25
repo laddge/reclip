@@ -1,6 +1,4 @@
-from .serve import serve
-from .set import set
-from .get import get
-from .delete import delete
+from .server import serve
+from .client import set, get, delete
 
-__version__ = '0.1.1'
+__version__ = '0.2.0'
