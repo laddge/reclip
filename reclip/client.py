@@ -11,7 +11,7 @@ def comm(host, port, dic):
             if not host:
                 host = conf['host']
             if not port:
-                port = conf['port']
+                port = int(conf['port'])
         except Exception as e:
             print(e)
             print('Can\'t read config!')
