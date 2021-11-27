@@ -29,10 +29,10 @@ def comm(host, port, dic):
         print(res.decode('utf-8'))
 
 
-def set(host=None, port=None, content=''):
+def set(host=None, port=None, value=''):
     dic = {
         'mode': 's',
-        'content': content,
+        'value': value,
     }
     comm(host, port, dic)
 
@@ -47,6 +47,6 @@ def get(host=None, port=None):
 def delete(host=None, port=None):
     dic = {
         'mode': 's',
-        'content': '',
+        'value': '',
     }
     comm(host, port, dic)

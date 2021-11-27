@@ -8,11 +8,11 @@ def cmd_serve(args):
 
 
 def cmd_set(args):
-    if 'content' in args:
-        content = args.content
+    if 'value' in args:
+        value = args.value
     else:
-        content = sys.stdin.read().strip()
-    set(host=args.host, port=args.port, content=content)
+        value = sys.stdin.read().strip()
+    set(host=args.host, port=args.port, value=value)
 
 
 def cmd_get(args):
@@ -51,7 +51,7 @@ def main():
         '--port', type=int, help='port (if not specified, read from ~/.reclip.json)'
     )
     if sys.stdin.isatty():
-        parser_set.add_argument('content', help='content')
+        parser_set.add_argument('value', help='value')
     parser_set.set_defaults(fn=cmd_set)
 
     parser_get = subparsers.add_parser('get', help='see `get -h`')
