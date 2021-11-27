@@ -7,7 +7,7 @@ def cmd_serve(args):
 
 
 def cmd_set(args):
-    set(host=args.host, port=args.port)
+    set(host=args.host, port=args.port, content=args.content)
 
 
 def cmd_get(args):
