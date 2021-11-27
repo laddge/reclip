@@ -31,22 +31,22 @@ def comm(host, port, dic):
 
 def set(host=None, port=None, content=''):
     dic = {
-            'mode': 's',
-            'content': content,
-        }
+        'mode': 's',
+        'content': content,
+    }
     comm(host, port, dic)
 
 
 def get(host=None, port=None):
     dic = {
-            'mode': 'g',
-        }
+        'mode': 'g',
+    }
     comm(host, port, dic)
 
 
 def delete(host=None, port=None):
     dic = {
-            'mode': 's',
-            'content': '',
-        }
+        'mode': 's',
+        'content': '',
+    }
     comm(host, port, dic)
