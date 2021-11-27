@@ -19,7 +19,7 @@ def cmd_delete(args):
 
 
 def main():
-    parser = argparse.ArgumentParser(description='reclip - a clipboard server')
+    parser = argparse.ArgumentParser(prog='reclip', description='reclip - a clipboard server')
     subparsers = parser.add_subparsers()
 
     parser_serve = subparsers.add_parser('serve', help='see `serve -h`')
