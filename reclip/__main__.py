@@ -33,7 +33,9 @@ def main():
     )
     subparsers = parser.add_subparsers()
 
-    parser_serve = subparsers.add_parser('serve', help='see `serve -h`')
+    parser_serve = subparsers.add_parser(
+        'serve', help='serve reclip server, see `serve -h`'
+    )
     parser_serve.add_argument(
         '--host', default='127.0.0.1', help='host addr (default = \'127.0.0.1\')'
     )
@@ -43,7 +45,7 @@ def main():
     parser_serve.add_argument('--saveto', help='save session to file')
     parser_serve.set_defaults(fn=cmd_serve)
 
-    parser_set = subparsers.add_parser('set', help='see `set -h`')
+    parser_set = subparsers.add_parser('set', help='set value, see `set -h`')
     parser_set.add_argument(
         '--host', help='host addr (if not specified, read from ~/.reclip.json)'
     )
@@ -54,7 +56,7 @@ def main():
         parser_set.add_argument('value', help='value')
     parser_set.set_defaults(fn=cmd_set)
 
-    parser_get = subparsers.add_parser('get', help='see `get -h`')
+    parser_get = subparsers.add_parser('get', help='get value, see `get -h`')
     parser_get.add_argument(
         '--host', help='host addr (if not specified, read from ~/.reclip.json)'
     )
@@ -63,7 +65,9 @@ def main():
     )
     parser_get.set_defaults(fn=cmd_get)
 
-    parser_delete = subparsers.add_parser('delete', help='see `delete -h`')
+    parser_delete = subparsers.add_parser(
+        'delete', help='delete value, see `delete -h`'
+    )
     parser_delete.add_argument(
         '--host', help='host addr (if not specified, read from ~/.reclip.json)'
     )
