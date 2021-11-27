@@ -1,5 +1,5 @@
 import argparse
-from . import serve, set, get, delete
+from . import serve, set, get, delete, __version__
 
 
 def cmd_serve(args):
@@ -16,6 +16,10 @@ def cmd_get(args):
 
 def cmd_delete(args):
     delete(host=args.host, port=args.port)
+
+
+def cmd_version(args):
+    print('reclip version {}'.format(__version__))
 
 
 def main():
@@ -42,6 +46,9 @@ def main():
     parser_delete.add_argument('--host', default='127.0.0.1', help='host addr (default = \'127.0.0.1\')')
     parser_delete.add_argument('--port', default=8000, help='port (default = 8000)')
     parser_delete.set_defaults(fn=cmd_delete)
+
+    parser_version = subparsers.add_parser('version', help='show version')
+    parser_version.set_defaults(fn=cmd_version)
 
     args = parser.parse_args()
     if hasattr(args, 'fn'):
