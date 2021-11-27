@@ -1,4 +1,5 @@
 import argparse
+import sys
 from . import serve, set, get, delete, __version__
 
 
@@ -7,7 +8,11 @@ def cmd_serve(args):
 
 
 def cmd_set(args):
-    set(host=args.host, port=args.port, content=args.content)
+    if 'content' in args:
+        content = args.content
+    else:
+        content = sys.stdin.read().strip()
+    set(host=args.host, port=args.port, content=content)
 
 
 def cmd_get(args):
@@ -35,7 +40,8 @@ def main():
     parser_set = subparsers.add_parser('set', help='see `set -h`')
     parser_set.add_argument('--host', help='host addr (if not specified, read from ~/.reclip.json)')
     parser_set.add_argument('--port', type=int, help='port (if not specified, read from ~/.reclip.json)')
-    parser_set.add_argument('content', help='content')
+    if sys.stdin.isatty():
+        parser_set.add_argument('content', help='content')
     parser_set.set_defaults(fn=cmd_set)
 
     parser_get = subparsers.add_parser('get', help='see `get -h`')
