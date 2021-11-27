@@ -3,7 +3,7 @@ from . import serve, set, get, delete, __version__
 
 
 def cmd_serve(args):
-    serve(host=args.host, port=args.port)
+    serve(host=args.host, port=args.port, saveto=args.saveto)
 
 
 def cmd_set(args):
@@ -29,6 +29,7 @@ def main():
     parser_serve = subparsers.add_parser('serve', help='see `serve -h`')
     parser_serve.add_argument('--host', default='127.0.0.1', help='host addr (default = \'127.0.0.1\')')
     parser_serve.add_argument('--port', default=8000, help='port (default = 8000)')
+    parser_serve.add_argument('--saveto', help='save session to file')
     parser_serve.set_defaults(fn=cmd_serve)
 
     parser_set = subparsers.add_parser('set', help='see `set -h`')
