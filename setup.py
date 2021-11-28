@@ -12,6 +12,7 @@ setup(
     version=__version__,
     description='a clipboard server',
     long_description=readme,
+    long_description_content_type='text/markdown',
     url='https://github.com/laddge/reclip',
     author='Laddge',
     author_email='dev.laddge@gmail.com',
